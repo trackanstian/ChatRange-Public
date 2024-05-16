@@ -5,7 +5,7 @@ from chatrange.helpers import dprint, conversation, format_string, nav_to
 
 #If the UUID is not set then go to the Start
 if 'main' not in st.session_state:
-    nav_to("/1.0_Prompt_Engineering", st)
+    nav_to("/1.0_Scenario", st)
 
 import logging
 from chatrange.helpers import dprint, conversation, format_string, nav_to
@@ -38,4 +38,42 @@ st.markdown("**Cost**: "+str(cost)+" $")
 # Exercise objectives
 st.header('Exercise objectives')
 st.dataframe(pd.DataFrame(st.session_state['exercise_objectives']['objectives'], columns=['Objectives']), use_container_width=True)
+
+st.markdown("---")
+
+# Threat intelligence
+st.header('Threat intelligence')
+st.markdown(st.session_state['threat_intel']['research'])
+
+st.markdown("---")
+
+# Parts
+st.header('Parts')
+st.markdown(st.session_state['generator']['parts'])
+
+st.markdown("---")
+
+#Timeline
+st.header('Timeline')
+st.markdown(st.session_state['generator']['timeline'])
+
+st.markdown("---")
+
+#Questions
+st.header('Questions')
+st.markdown(st.session_state['generator']['questions'])
+
+st.markdown("---")
+
+#Cases
+st.header('Cases')
+st.markdown(st.session_state['cases']['research']) 
+
+st.markdown("---")
+
+#Case Studies
+st.header('Case Studies')
+for case in st.session_state['cases']['details']:
+    st.markdown(case)
+
 

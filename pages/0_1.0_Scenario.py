@@ -64,8 +64,8 @@ if 'threat_intel' not in st.session_state:
     
 if 'generator' not in st.session_state:
     st.session_state['generator'] = {
+    "parts": "",
     "timeline": "",
-    "storyline": "",
     "questions": "",
     }
 

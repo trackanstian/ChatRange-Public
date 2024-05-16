@@ -12,7 +12,9 @@ from crewai import Task
 # You can also define custom agents in agents.py
 class TabletopTasks:
     def __init__(
-            self, uuid: str,  
+            self, uuid: str,
+            case: str = "",
+            case_id: int = 0,
             incident_type: str = "",
             organization: str ="ACME Inc", 
             target: str ="IT-Management", 
@@ -33,6 +35,8 @@ class TabletopTasks:
         self.end = end
         self.objectives = objectives
         self.uuid = uuid
+        self.case = case
+        self.case_id = case_id
 
     def create_objective_text(self):
         objective_text = ""
@@ -48,6 +52,27 @@ class TabletopTasks:
 
     def __tip_section(self):
         return "If you do your BEST WORK, I'll give you a $10,000 commission!"
+    
+    def research(self, agent):
+        return Task(description=dedent(f"""\
+            Task: Research and create a blog post with a summary of this attack. It must contain a title and 2 paragraphs:
+            "{self.case}"
+            
+            Description: NEVER deviate from the format. Only provide a timeline of the attack. Do not include any other information. Do not add any other titles.
+                                      
+            Notes: {self.__tip_section()}
+            """),
+            expected_output=dedent(f"""\
+            A case study in markdown.
+            format:
+            # Title
+            Paragraph 1
+            Paragraph 2
+            """),
+            output_file=f"GenDat/crewai/{self.uuid}/case_research_01.case.{self.case_id}.md",
+            agent=agent
+        )
+
     
     def define_situation(self, agent):
         return Task(description=dedent(f"""\
@@ -166,15 +191,6 @@ class TabletopTasks:
             Task: For each category provided: List of cyber attacks that match the category. At least three examples for each category. 
 
             Type: This must be a category from the case studies.            
-
-            Example:
-            [
-                {{"threat": "Hillary Clinton's 2016 presidential campaign spear phishing attacks", "category": "phishing"}},
-                {{"threat": "Threat Group-4127 (Fancy Bear) targeting Google accounts", "category": "phishing"}},
-                {{"threat": "Whaling attacks targeting senior executives", "category": "phishing"}},
-                {{"threat": "WannaCry ransomware attack", "category": "ransomware"}},
-                {{"threat": "Taiwan Semiconductor Manufacturing Company (TSMC) ransomware attack", "category": "ransomware"}}
-            ]
                                        
             Notes: {self.__tip_section()}
             """),
