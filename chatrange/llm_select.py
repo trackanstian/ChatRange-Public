@@ -24,6 +24,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 GROQ_API_KEY = os.getenv('GROQ_API_KEY', "")
+MODEL_FILE = os.getenv('MODEL_FILE', "models.json")
 
 
 def load_json_config(file_path):
@@ -48,7 +49,7 @@ def load_json_config(file_path):
 def select_model(messages: OpenAIMessages = None, use: str = ""):
 
     #Load the config file
-    config_path = 'GenDat/config/models.json'
+    config_path = 'GenDat/config/'+MODEL_FILE
     config = load_json_config(config_path)
 
     dataObject = {}

@@ -10,7 +10,8 @@ import pandas as pd
 from chatrange.crewai.master.main import CaseStudiesCrew, CaseResearchCrew
 
 #Custom tiktoken - which supports GPT-4o
-import chatrange.tiktoken_v as tiktoken
+import tiktoken
+
 
 import requests
 import html2text
