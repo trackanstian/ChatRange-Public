@@ -57,9 +57,11 @@ pip install -r requirements.txt
 How to use the project after installation.
 
 
-### Example command to run the project
+### Example command to run the project (Windows)
 python -m streamlit run .\Start.py
 
+### Example command to run the project (Linux)
+python -m streamlit run .\Start.py
 
 ## Configuration
 Information about any configuration settings and how to modify them.
