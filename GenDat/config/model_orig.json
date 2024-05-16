@@ -1,0 +1,77 @@
+[
+    {
+        "use": "exercise_objectives",
+        "type":"openai",
+        "model": "gpt-3.5-turbo-0125",
+        "temperature": 0.7,
+        "max_tokens": 2000,
+        "price_in":0.0005,
+        "price_out": 0.0015
+    },
+    {
+        "use": "agent_threat_hunter",
+        "type":"openai_chat",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.7,
+        "max_tokens": 1000,
+        "price_in":0.0005,
+        "price_out": 0.0015
+    },
+    {
+        "use": "agent_cybersecurity_researcher",
+        "type":"openai_chat",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.7,
+        "max_tokens": 1000,
+        "price_in":0.0005,
+        "price_out": 0.0015
+    },
+    {
+        "use": "agent_ciso",
+        "type":"openai_chat",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.7,
+        "max_tokens": 1000,
+        "price_in":0.0005,
+        "price_out": 0.0015
+    },
+    {
+        "use": "agent_data_expert",
+        "type":"openai_chat",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.7,
+        "max_tokens": 1000,
+        "price_in":0.0005,
+        "price_out": 0.0015
+    },
+    {
+        "use": "get_parts",
+        "type":"openai",
+        "model": "gpt-3.5-turbo",
+        "temperature": 0.7,
+        "max_tokens": 1000,
+        "price_in":0.0005,
+        "price_out": 0.0015
+    },
+    {
+        "use": "get_timeline",
+        "type":"openai",
+        "model": "gpt-4o",
+        "temperature": 0.7,
+        "max_tokens": 4000,
+        "price_in":0.005,
+        "price_out": 0.015
+    },
+    {
+        "use": "get_questions",
+        "type":"openai",
+        "model": "gpt-4o",
+        "temperature": 0.7,
+        "max_tokens": 4000,
+        "price_in":0.005,
+        "price_out": 0.015
+    }
+
+
+
+]

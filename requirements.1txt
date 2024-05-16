@@ -1,0 +1,10 @@
+openai
+retry
+decouple
+python-dotenv
+fakeredis
+redis
+streamlit
+supabase
+psycopg
+langchain
