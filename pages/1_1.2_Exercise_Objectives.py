@@ -7,8 +7,10 @@ import json
 from chatrange.redis import get_redis_client
 import uuid
 import pandas as pd
-import tiktoken
 from textwrap import dedent
+
+#Custom tiktoken - which supports GPT-4o
+import chatrange.tiktoken_v as tiktoken
 
 import requests
 import html2text
@@ -100,12 +102,6 @@ def get_ai_suggestion(focus: str = None, exercise_type: str = None, participants
 
     st.session_state['main']['tokens_in'] += len(encoding.encode(client.last_message))
     st.session_state['main']['cost_in'] += ((len(encoding.encode(client.last_message)) / 1000) *  model_data["config"]["price_out"])
-
-    
-    print(st.session_state['main']['cost_in'])
-    print(st.session_state['main']['cost_out'])
-    print(st.session_state['main']['tokens_in'])
-    print(st.session_state['main']['tokens_out'])
 
     return returnInfo
 

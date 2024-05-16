@@ -15,4 +15,3 @@ Requests
 retry
 streamlit
 streamlit_tags
-tiktoken

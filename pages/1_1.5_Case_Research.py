@@ -7,9 +7,10 @@ import json
 from chatrange.redis import get_redis_client
 import uuid
 import pandas as pd
-import tiktoken
 from chatrange.crewai.master.main import CaseStudiesCrew, CaseResearchCrew
 
+#Custom tiktoken - which supports GPT-4o
+import chatrange.tiktoken_v as tiktoken
 
 import requests
 import html2text
