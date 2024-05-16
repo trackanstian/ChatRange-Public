@@ -85,7 +85,12 @@ def get_parts(purpose: str, scenario: str):
 
         errors += 1
 
-    encoding = tiktoken.encoding_for_model(model_data["config"]["model"])
+    # Tiktoken
+    #Fix for GPT-4o for tiktoken
+    if model_data["config"]["model"] == "gpt-4o":
+        encoding = tiktoken.get_encoding("o200k_base")
+    else:
+        encoding = tiktoken.encoding_for_model(model_data["config"]["model"])
     st.session_state['main']['tokens_out'] += len(encoding.encode(message))
     st.session_state['main']['cost_out'] += ((len(encoding.encode(message))/1000) * model_data["config"]["price_in"])
 
@@ -146,8 +151,11 @@ def get_timeline(parts: str, scenario: str, threat_actor: str, company: str):
         errors += 1
 
     # Tiktoken
-
-    encoding = tiktoken.encoding_for_model(model_data["config"]["model"])
+    #Fix for GPT-4o for tiktoken
+    if model_data["config"]["model"] == "gpt-4o":
+        encoding = tiktoken.get_encoding("o200k_base")
+    else:
+        encoding = tiktoken.encoding_for_model(model_data["config"]["model"])
     st.session_state['main']['tokens_out'] += len(encoding.encode(message))
     st.session_state['main']['cost_out'] += ((len(encoding.encode(message))/1000) * model_data["config"]["price_in"])
 
@@ -212,7 +220,11 @@ def get_questions(objectives: list, parts: str, participants: str):
         errors += 1
 
     # Tiktoken
-    encoding = tiktoken.encoding_for_model(model_data["config"]["model"])
+    #Fix for GPT-4o for tiktoken
+    if model_data["config"]["model"] == "gpt-4o":
+        encoding = tiktoken.get_encoding("o200k_base")
+    else:
+        encoding = tiktoken.encoding_for_model(model_data["config"]["model"])
     st.session_state['main']['tokens_out'] += len(encoding.encode(message))
     st.session_state['main']['cost_out'] += ((len(encoding.encode(message))/1000) * model_data["config"]["price_in"])
 
