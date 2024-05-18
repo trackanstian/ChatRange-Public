@@ -69,6 +69,8 @@ How to use the project after installation.
 ### Example command to run the project (Linux)
     streamlit run Start.py
 
+Navigate to the Network URL in your browser.
+
 ## Configuration
 Information about any configuration settings and how to modify them.
 
