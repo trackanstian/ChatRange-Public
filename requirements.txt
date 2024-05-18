@@ -1,4 +1,4 @@
-crewai
+crewai==0.22.5
 crewai_tools
 exa_py
 fakeredis

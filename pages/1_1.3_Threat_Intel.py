@@ -57,7 +57,7 @@ def create_folder(path: str):
     Returns:
         None
     """
-    path = f"{path}\{st.session_state['session']}"
+    path = f"{os.path.abspath(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..'))}\{path}\{st.session_state['session']}"
     if not os.path.exists(path):
         os.makedirs(path)
 
@@ -95,7 +95,7 @@ col.markdown("---")
 if col.button('Research Threat actor'):
     with st.spinner('Researching...'):
         st.session_state['threat_intel'] = {"research": ""}
-        create_folder("GenDat/crewai/")
+        create_folder("GenDat/crewai")
 
         custom_crew = CyberExerciseCrew(
             uuid=st.session_state['session'],
