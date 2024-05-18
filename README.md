@@ -39,7 +39,7 @@ Step-by-step instructions on how to install the project.
 
 
 ### Navigate to the project directory
-    cd yourproject
+    cd ChatRange-Public
 
 
 ### Create a virtual environment
