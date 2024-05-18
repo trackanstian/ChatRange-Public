@@ -56,6 +56,8 @@ Step-by-step instructions on how to install the project.
 ### Install dependencies
     pip install -r requirements.txt
 
+### Create and edit .env file
+    cp env.example .env
 
 ## Usage
 How to use the project after installation.
