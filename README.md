@@ -58,7 +58,7 @@ Step-by-step instructions on how to install the project.
 
 
 ## Usage
-    How to use the project after installation.
+How to use the project after installation.
 
 
 ### Example command to run the project (Windows)
