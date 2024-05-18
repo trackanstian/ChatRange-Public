@@ -31,37 +31,37 @@ Step-by-step instructions on how to install the project.
 
 
 ### Clone the repository
-https://github.com/trackanstian/ChatRange-Public.git
+    git clone https://github.com/trackanstian/ChatRange-Public.git
 
 
 ### Navigate to the project directory
-cd yourproject
+    cd yourproject
 
 
 ### Create a virtual environment
-python -m venv venv
+    python -m venv venv
 
 
 ### Activate the virtual environment
 
 #### On Windows
-venv\Scripts\activate
+    venv\Scripts\activate
 #### On Unix or MacOS
-source venv/bin/activate
+    source venv/bin/activate
 
 ### Install dependencies
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
 
 ## Usage
-How to use the project after installation.
+    How to use the project after installation.
 
 
 ### Example command to run the project (Windows)
-python -m streamlit run .\Start.py
+    python -m streamlit run .\Start.py
 
 ### Example command to run the project (Linux)
-python -m streamlit run .\Start.py
+    streamlit run Start.py
 
 ## Configuration
 Information about any configuration settings and how to modify them.
@@ -117,7 +117,61 @@ API Key Required: Yes
 URL: https://openai.com
 
 
-### Config File - env.example
+## Config Files 
+### GenDat/config/models.json
+This file is used to define what models each step of ChatRange uses. There are three options defined with type:
+ - OpenAI (openai) - This is used for GPT models which uses static prompting. Uses the OpenAI packages.
+ - OpenAI Chat (openai_chat) - This is used for the agents when using OpenAI models. This is provided by Langchain Tools
+ - Groq (groq) - Used when using the models Groq gives access to, E.g. Mixtral and llama
+ - LiteLLM (litellm) - Use for local models. Experimental and not guaranteed to work! Uses the LangChain Tools package. Please read the docs: https://docs.litellm.ai/docs/proxy/quick_start
+
+You can define up as many json config files you want. The active file name is defined with MODEL_FILE in the .env file. The price is used for calucation of total cost for the exercise. Must be manually defined in the config.
+
+#### Example (Openai):   
+    {
+    "use": "exercise_objectives",
+    "type":"openai",
+    "model": "gpt-3.5-turbo",
+    "temperature": 0.7,
+    "max_tokens": 2000,
+    "price_in":0.0005,
+    "price_out": 0.0015
+    }
+
+#### Example (OpenAI Chat):   
+    {
+    "use": "agent_threat_hunter",
+    "type":"openai_chat",
+    "model": "gpt-3.5-turbo",
+    "temperature": 0.7,
+    "max_tokens": 2000,
+    "price_in":0.0005,
+    "price_out": 0.0015
+    }
+
+#### Example (Groq):   
+    {
+    "use": "agent_threat_hunter",
+    "type":"groq",
+    "model": "mixtral-8x7b-32768",
+    "temperature": 0.7,
+    "max_tokens": 1000,
+    "price_in":0.0005,
+    "price_out": 0.0015
+    }
+
+#### Example (LiteLLM Experimental):   
+    {
+    "use": "agent_threat_hunter",
+    "type":"litellm",
+    "model": "mixtral-8x7b-32768",
+    "temperature": 0.7,
+    "base_url": "http://0.0.0.0:4000",
+    "price_in":0.0005,
+    "price_out": 0.0015
+    }
+
+### env.example
 Rename this file to .env and set the configuration settings:
 
 
@@ -128,7 +182,10 @@ Rename this file to .env and set the configuration settings:
     OPENAI_API_KEY=""  
 
     #Set to true to print debug data  
-    DEBUG=true  
+    DEBUG=False  
+
+    #Model config file - You must restart streamlit for env to load again   
+    MODEL_FILE="models.json"   
 
     #Storage - Set REDIS_EMUALTOR to true to use the in-memory cache fakeredis  
     REDIS_EMULATOR=False  
