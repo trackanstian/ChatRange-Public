@@ -52,8 +52,23 @@
             border-radius: 5px;
         }
     </style>
+<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
 </head>
 <body>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('https://github.com/trackanstian/ChatRange-Public/blob/main/README.md')
+                .then(response => response.text())
+                .then(text => {
+                    const converter = new showdown.Converter();
+                    const html = converter.makeHtml(text);
+                    document.getElementById('readme-content').innerHTML = html;
+                })
+                .catch(error => console.error('Error loading README.md:', error));
+        });
+    </script>
 
 <header>
     <h1>ChatRange</h1>
@@ -88,129 +103,12 @@
     </ul>
 </section>
 
-<section id="installation">
-    <h2>Installation</h2>
-    <h3>Clone the repository</h3>
-    <pre>https://github.com/trackanstian/ChatRange-Public.git</pre>
-    
-    <h3>Navigate to the project directory</h3>
-    <pre>cd yourproject</pre>
-    
-    <h3>Create a virtual environment</h3>
-    <pre>python -m venv venv</pre>
-    
-    <h3>Activate the virtual environment</h3>
-    <p><strong>On Windows:</strong></p>
-    <pre>venv\Scripts\activate</pre>
-    <p><strong>On Unix or MacOS:</strong></p>
-    <pre>source venv/bin/activate</pre>
-    
-    <h3>Install dependencies</h3>
-    <pre>pip install -r requirements.txt</pre>
+
+<section id="Readme">
+    <h2>Features</h2>
+    <ul>
+        <li>Uses Autnonomous AI Agents (CrewAI) for content research</li>
+        <li>Supports OpenAI, Groq and Local models with Litellm</li>
+        <li>Graphical Interface using Streamlit</li>
+    </ul>
 </section>
-
-<section id="usage">
-    <h2>Usage</h2>
-    
-    <h3>Example command to run the project (Windows)</h3>
-    <pre>python -m streamlit run .\Start.py</pre>
-
-    <h3>Example command to run the project (Linux)</h3>
-    <pre>streamlit run Start.py</pre>
-</section>
-
-<section id="configuration">
-    <h2>Configuration</h2>
-    <p>Information about any configuration settings and how to modify them.</p>
-    
-    <h3>Services</h3>
-    <p>The tools are available for each agent to use when performing the assigned tasks. To be able to use chatRange you need to register on these sites and get API-keys. They are all free.</p>
-    
-    <h4>Search Tool</h4>
-    <p>CrewAI includes search tools, and Serper fetches the top search results from Google, along with metadata and a short description of the page.</p>
-    <p><strong>Settings</strong></p>
-    <ul>
-        <li>API Key Required: Yes</li>
-        <li>URL: <a href="https://serper.dev" target="_blank">https://serper.dev</a></li>
-    </ul>
-    
-    <h4>Exa Search</h4>
-    <p>Exa search is a search and data fetching service specifically built for AI applications. This is a custom tool implemented in ChatRange, from LangChain. The tool provides access to three critical sub-tools used in ChatRange:</p>
-    <ul>
-        <li>Search: Runs a semantic search for a webpage</li>
-        <li>Find Similar: Fines similar results based on a similar URL.</li>
-        <li>Get Contents: Gets the contents of a specific webpage along with its metadata.</li>
-    </ul>
-    <p><strong>Settings</strong></p>
-    <ul>
-        <li>API Key Required: Yes</li>
-        <li>URL: <a href="https://exa.ai" target="_blank">https://exa.ai</a></li>
-    </ul>
-    
-    <h4>GROQ</h4>
-    <p>GROQ is a platform for performing inference against open source and limited models like Mistral and Lllama. This is optional for the platform and only if there is a need to run these models:</p>
-    <p><strong>Settings</strong></p>
-    <ul>
-        <li>API Key Required: Yes</li>
-        <li>URL: <a href="https://groq.com" target="_blank">https://groq.com</a></li>
-    </ul>
-    
-    <h4>REDIS</h4>
-    <p>Redis is an in-memory data structure store used as a database, cache, and message broker, supporting various data structures such as strings, hashes, lists, sets, and more. This is used in ChatRange for presistance of training secenarios. The solution supports fakeredis, however this is only stored in memory when running the application.</p>
-    <p><strong>Settings</strong></p>
-    <ul>
-        <li>API Key Required: Yes</li>
-        <li>URL: <a href="https://app.redislabs.com/" target="_blank">https://app.redislabs.com/</a></li>
-    </ul>
-    
-    <h4>OpenAI</h4>
-    <p>OpenAi is a company providing access to GPT models for performing inference. This is a requirement for running the platform:</p>
-    <p><strong>Settings</strong></p>
-    <ul>
-        <li>API Key Required: Yes</li>
-        <li>URL: <a href="https://openai.com" target="_blank">https://openai.com</a></li>
-    </ul>
-    
-    <h3>Config File - env.example</h3>
-    <p>Rename this file to .env and set the configuration settings:</p>
-    <pre>
-#SERVICES  
-SERPER_DEV_API_KEY=""  
-EXA_SEARCH_API_KEY=""  
-GROQ_API_KEY=""  
-OPENAI_API_KEY=""  
-
-#Set to true to print debug data  
-DEBUG=true  
-
-#Storage - Set REDIS_EMUALTOR to true to use the in-memory cache fakeredis  
-REDIS_EMULATOR=False  
-REDIS_HOST=  
-REDIS_PORT=13997  
-REDIS_DB=0  
-REDIS_PASSWORD=""
-    </pre>
-</section>
-
-<section id="contributing">
-    <h2>Contributing</h2>
-    <ol>
-        <li>Fork the repository.</li>
-        <li>Create a new branch.</li>
-        <li>Make your changes.</li>
-        <li>Submit a pull request.</li>
-    </ol>
-</section>
-
-<section id="license">
-    <h2>License</h2>
-    <p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
-</section>
-
-<section id="acknowledgements">
-    <h2>Acknowledgements</h2>
-    <ul>
-        <li><a href="https://github.com/joaomdmoura/crewAI" target="_blank">CrewAI</a> for a aswesome implementation of Autnonomous AI Agents.</li>
-        <li><a href="https://www.ntnu.no/gjovik" target="_blank">NTNU Gjøvik</a></li>
-        <li><a href="https://www.ntnu.no/ncr" target="_blank">Norwegian Cyberrange</a></li>
-    </
