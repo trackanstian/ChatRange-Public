@@ -52,23 +52,8 @@
             border-radius: 5px;
         }
     </style>
-<script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
 </head>
 <body>
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('README.md')
-                .then(response => response.text())
-                .then(text => {
-                    const converter = new showdown.Converter();
-                    const html = converter.makeHtml(text);
-                    document.getElementById('readme-content').innerHTML = html;
-                })
-                .catch(error => console.error('Error loading README.md:', error));
-        });
-    </script>
 
 <header>
     <h1>ChatRange</h1>
@@ -104,13 +89,9 @@
 </section>
 
 
-<section id="Readme">
-    <h2>Features</h2>
-    <ul>
-        <li>Uses Autnonomous AI Agents (CrewAI) for content research</li>
-        <li>Supports OpenAI, Groq and Local models with Litellm</li>
-        <li>Graphical Interface using Streamlit</li>
-    </ul>
+<section id="Code">
+    <h2>Code</h2>
+    <a href="https://github.com/trackanstian/ChatRange-Public" target="_blank">https://github.com/trackanstian/ChatRange-Public</a>
 </section>
 
 <section id="contributing">
