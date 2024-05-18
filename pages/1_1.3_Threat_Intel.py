@@ -92,10 +92,11 @@ col.markdown(
 
 col.markdown("---")
 
+create_folder("GenDat/crewai")
+
 if col.button('Research Threat actor'):
     with st.spinner('Researching...'):
         st.session_state['threat_intel'] = {"research": ""}
-        create_folder("GenDat/crewai")
 
         custom_crew = CyberExerciseCrew(
             uuid=st.session_state['session'],
