@@ -15,3 +15,4 @@ Requests
 retry
 streamlit
 streamlit_tags
+wikipedia
