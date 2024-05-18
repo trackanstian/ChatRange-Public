@@ -18,7 +18,11 @@
   - [Citation](#citation)
 
 ## Description
-ChatRange is created to help companies and organizations develop cyber training exercises (Tabletop) using Large language models and Autnonomous AI Agents. The system is a result of a Master Thesis (2024) from NTNU Gjøvik.
+ChatRange is an innovative system designed to streamline the development and execution of cyber training exercises, specifically tabletop exercises. Traditionally, planning these exercises can take one to three months for an eight-hour session, according to NIST and MITRE estimates. This significant time and resource investment creates a gap, preventing companies from adequately training for critical events.
+
+To address this issue, ChatRange leverages Autonomous AI agents and Large Language Models (LLMs) to automate the planning process. By utilizing external real-world information, the system can generate realistic scenarios, significantly reducing the preparation time and cost.
+
+Implementation of ChatRange is straightforward, requiring only the provision of API keys. It employs a cloud delivery model, ensuring easy integration and scalability for organizations. ChatRange is the culmination of a Master Thesis (2024) from NTNU Gjøvik, reflecting cutting-edge research and development in the field of cyber training.
 
 ## Features
 - Uses Autnonomous AI Agents (CrewAI) for content research
