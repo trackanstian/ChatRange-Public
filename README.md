@@ -194,6 +194,9 @@ Rename this file to .env and set the configuration settings:
     REDIS_DB=0  
     REDIS_PASSWORD=""  
 
+### GenDat/crewai
+This is the folder CrewAI uses for storage of the data files. Each file is stored in a unique folder with a UUID. This is the same UUID as in your Session ID in ChatRange UI. The folder is created when the first CrewAI team is finished.
+
 
 ## Contributing
 Guidelines for contributing to the project.
