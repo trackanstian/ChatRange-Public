@@ -38,34 +38,37 @@ Step-by-step instructions on how to install the project.
 - Git
 - Python venv / Conda
 
-### Quick install
-    git clone https://github.com/trackanstian/ChatRange-Public.git && cd ChatRange-Public && bash install.sh
+### Quick install (curl)
+    curl -s https://raw.githubusercontent.com/trackanstian/ChatRange-Public/main/install.sh | bash
 
+### Quick install (wget)
+    wget -qO- https://raw.githubusercontent.com/trackanstian/ChatRange-Public/main/install.sh | bash
 
+### Manual Installation
 
-### Clone the repository
+#### Clone the repository
     git clone https://github.com/trackanstian/ChatRange-Public.git
 
 
-### Navigate to the project directory
+#### Navigate to the project directory
     cd ChatRange-Public
 
 
-### Create a virtual environment
+#### Create a virtual environment
     python -m venv venv
 
 
-### Activate the virtual environment
+#### Activate the virtual environment
 
-#### On Windows
+##### On Windows
     venv\Scripts\activate
-#### On Unix or MacOS
+##### On Unix or MacOS
     source venv/bin/activate
 
-### Install dependencies
+#### Install dependencies
     pip install -r requirements.txt
 
-### Create and edit .env file
+#### Create and edit .env file
     cp env.example .env
 
 ## Usage
