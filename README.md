@@ -33,6 +33,15 @@ Implementation of ChatRange is straightforward, requiring only the provision of 
 ## Installation
 Step-by-step instructions on how to install the project.
 
+### Requirements
+- Python 3.10
+- Git
+- Python venv / Conda
+
+### Quick install
+    git clone https://github.com/trackanstian/ChatRange-Public.git && cd ChatRange-Public && bash install.sh
+
+
 
 ### Clone the repository
     git clone https://github.com/trackanstian/ChatRange-Public.git
