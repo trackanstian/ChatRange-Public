@@ -1,4 +1,5 @@
 #!/bin/bash
+# Install dependencies
 apt -y install python-is-python3 git python3.10-venv
 
 
