@@ -16,7 +16,7 @@ REDIS_PASSWORD = os.getenv('REDIS_PASSWORD', '')
 
 
 def get_redis_client():
-    if REDIS_EMULATOR == False:
+    if REDIS_EMULATOR != False:
         # Use fakeredis for testing
         return fakeredis.FakeStrictRedis()
     else:
